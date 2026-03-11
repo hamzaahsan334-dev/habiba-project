@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Hello Kitty Surprise for Habiba ❤️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&family=Bubblegum+Sans&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+
+<body>
+  <div class="background-hearts" id="hearts-container"></div>
+
+  <!-- Floating Bows Layer -->
+  <div class="bow-overlay"></div>
+
+  <main class="container">
+    <!-- Part 1: Initial Celebration & Greeting -->
+    <section id="greeting-section" class="card active">
+      <div class="character-container">
+        <img src="assets/hello_kitty.png" alt="Hello Kitty" class="kitty-img">
+      </div>
+      <h1 class="main-title">Habiba!❤️</h1>
+      <p class="love-message">I love you so, so much. You're the best thing that ever happened to me, and I want to
+        spend every single second of my life with you.</p>
+      <button class="btn primary-btn" onclick="nextSection()">Next ❤️🎀</button>
+    </section>
+
+    <!-- Part 2: The Question -->
+    <section id="question-section" class="card">
+      <div class="bow-icon">🎀</div>
+      <h2 class="subtitle">I have a question for you...</h2>
+      <p class="question-text">Do you love me and will you marry me? 💍</p>
+      <div class="button-group">
+        <button id="yes-btn" class="btn yes-btn" onclick="showSuccess()">YES! 💖</button>
+        <button id="no-btn" class="btn no-btn">No 😢</button>
+      </div>
+    </section>
+
+    <!-- Part 3: Success -->
+    <section id="success-section" class="card">
+      <div class="character-container floating">
+        <img src="assets/hello_kitty.png" alt="Happy Kitty" class="kitty-img">
+      </div>
+      <h2 class="main-title">I Knew It! 😍🎀</h2>
+      <p class="love-message">I love you forever, Habiba! You've made me the happiest person alive! 🎉❤️</p>
+      <div class="heart-pulse">💖</div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,206 @@
+:root {
+  --primary-pink: #FFB7C5; /* Soft Cherry Blossom Pink */
+  --secondary-pink: #FFDDE1; /* Very Light Pink */
+  --accent-pink: #FF007F; /* Darker Pink/Rose */
+  --text-color: #5D2E46; /* Soft Dark Mauve for readability */
+  --white: rgba(255, 255, 255, 0.9);
+  --kitty-red: #E60012; /* Classic Hello Kitty Bow Red */
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Great+Vibes&family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(135deg, var(--secondary-pink), #FFF5F7);
+  background-image: 
+    radial-gradient(circle at 2px 2px, rgba(255, 183, 197, 0.3) 1px, transparent 0);
+  background-size: 30px 30px; /* Subtle polka dot background */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: var(--text-color);
+}
+
+.background-hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.container {
+  width: 95%;
+  max-width: 420px;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.card {
+  background: var(--white);
+  backdrop-filter: blur(12px);
+  border-radius: 40px; /* Cuter, rounder corners */
+  padding: 40px 25px;
+  box-shadow: 0 15px 40px rgba(255, 183, 197, 0.3);
+  display: none;
+  border: 3px solid white;
+  animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+  position: relative;
+}
+
+.card.active {
+  display: block;
+}
+
+/* Hello Kitty Character Styling */
+.character-container {
+  margin-bottom: 20px;
+}
+
+.kitty-img {
+  width: 150px;
+  height: auto;
+  filter: drop-shadow(0 5px 15px rgba(255, 183, 197, 0.5));
+  animation: floatKitty 4s ease-in-out infinite;
+}
+
+@keyframes floatKitty {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-15px) rotate(2deg); }
+}
+
+.main-title {
+  font-family: 'Bubblegum Sans', cursive;
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+  color: var(--accent-pink);
+  text-shadow: 2px 2px 0 white;
+}
+
+.subtitle {
+  font-family: 'Bubblegum Sans', cursive;
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: var(--accent-pink);
+}
+
+.love-message,
+.question-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: #7A4963;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  position: relative;
+  height: 65px;
+  align-items: center;
+}
+
+.btn {
+  padding: 14px 30px;
+  border: none;
+  border-radius: 25px;
+  font-family: 'Bubblegum Sans', cursive;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn:active {
+  transform: scale(0.9);
+}
+
+.btn:hover {
+  transform: translateY(-5px);
+}
+
+.primary-btn {
+  background: var(--accent-pink);
+  color: white;
+}
+
+.yes-btn {
+  background: #FF69B4;
+  color: white;
+}
+
+.no-btn {
+  background: #FFCFD2;
+  color: var(--accent-pink);
+  position: absolute;
+  z-index: 100;
+  transition: left 0.3s ease-out, top 0.3s ease-out;
+}
+
+/* Bow Motifs */
+.bow-icon {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  animation: swing 2s ease-in-out infinite;
+}
+
+@keyframes swing {
+  0%, 100% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+}
+
+.heart-pulse {
+  font-size: 6rem;
+  animation: pulse 0.6s infinite;
+  filter: drop-shadow(0 0 20px var(--primary-pink));
+}
+
+@keyframes bounceIn {
+  from { opacity: 0; transform: scale(0.3); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+/* Floating Elements */
+.floating-heart, .floating-bow {
+  position: absolute;
+  pointer-events: none;
+  animation: floatUp 5s linear forwards;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+  100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+}
+
+/* Success State Enhancements */
+.card.success {
+  background: linear-gradient(to bottom, white, #FFF0F3);
+}
+
+@media (max-width: 480px) {
+  .main-title { font-size: 2.2rem; }
+  .kitty-img { width: 120px; }
+  .card { padding: 30px 20px; }
+}
